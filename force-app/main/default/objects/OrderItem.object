@@ -147,7 +147,7 @@
     <fields>
         <fullName>ServiceDate</fullName>
         <trackHistory>false</trackHistory>
-    </fields>
+ </fields>
     <fields>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
