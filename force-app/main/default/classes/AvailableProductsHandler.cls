@@ -1,13 +1,16 @@
-/**
- * Name: AvailableProductsHandler
- * Date: 17-Apr-22
- * Author: Shiva Karna
+ /**
+ * Apex Class Name: AvailableProductsHandler
+ * created Date: 17-Apr-22
+ * @Author: Shiva Karna
  * Description: this class developed to show order products and available products 
- * in AvailableProducts lwc component in order record page 
- * Changes: 
+ * in AvailableProducts lwc component in order record page.
+ * Modification log
+ * Ver   Date          Author                           Modification
+ * 1.0   17-Apr-2022   Shiva Karna                      Initial Version
  * 
  * 
  */
+ 
 public with sharing class AvailableProductsHandler {
 
     // this method will add new products under order products object
@@ -72,12 +75,12 @@ public with sharing class AvailableProductsHandler {
         Order orderRec =[select id,Pricebook2Id from order where id=:orderRecID];
         //retrive product, list price from pricebook entry based on selected products
         List<PricebookEntry> selectedproductslst = [SELECT Id, ProductCode,Product2Id,UnitPrice
-            FROM PricebookEntry where Pricebook2Id =:orderRec.Pricebook2Id 
-                And Product2Id=:selectprodIdSet];         
+                                                     FROM PricebookEntry where Pricebook2Id =:orderRec.Pricebook2Id 
+                                                     And Product2Id=:selectprodIdSet];         
         //retrive products from pricebookentry based orderpricebook and related products
         List<PricebookEntry> productsnotselectlst = [SELECT Id, ProductCode,Product2Id,UnitPrice
-            FROM PricebookEntry where Pricebook2Id =:orderRec.Pricebook2Id 
-                And Product2Id!=:selectprodIdSet];         
+                                                       FROM PricebookEntry where Pricebook2Id =:orderRec.Pricebook2Id 
+                                                       And Product2Id!=:selectprodIdSet];         
          selectedproductslst.addAll(productsnotselectlst);
         
          return selectedproductslst;

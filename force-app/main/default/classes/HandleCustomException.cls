@@ -1,9 +1,12 @@
 /**
- * Name: HandleCustomException
- * Date: 17-Apr-22
- * Author: Shiva Karna
+ * Apex Class Name: HandleCustomException
+ * created Date: 17-Apr-22
+ * @Author: Shiva Karna
  * Description: this class was developed to capture exception details in catch code. 
- * Changes: 
+ * Modification log
+ * Ver   Date          Author                               Modification
+ * 1.0   17-Apr-2022   Shiva Karna                      Initial Version
+ * 
  * 
  */
 public class HandleCustomException extends Exception {

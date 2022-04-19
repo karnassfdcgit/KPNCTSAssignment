@@ -1,13 +1,16 @@
-/**
- * Name: KPN_AssignmentSendOrderToRequestTeacher
- * Date: 17-Apr-22
- * Author: Shiva Karna
+ /**
+ * Apex Class Name: AssignmentSendOrderToRequestTeacher
+ * created Date: 17-Apr-22
+ * @Author: Shiva Karna
  * Description: this class was developed to send order and order products to requestcatcher site. 
  * This class will get involved whenever, we click activate button in order record page.
- * Changes: 
+ * Modification log
+ * Ver   Date          Author                               Modification
+ * 1.0   17-Apr-2022   Shiva Karna                      Initial Version
  * 
- *
+ * 
  */
+
 public with sharing class AssignmentSendOrderToRequestTeacher {   
     //Pass order id and retrive order products, generate json request and 
     //send it to requestcatcher site.    
@@ -42,8 +45,7 @@ public with sharing class AssignmentSendOrderToRequestTeacher {
          //Execute web service call here     
          Http http = new Http();
          HTTPResponse res = http.send(req);
-         string responseDetails = res.getBody();
-         system.debug('Callout response'+responseDetails);
+         string responseDetails = res.getBody();         
          }catch(exception e)
          {
           //create exception in custom exception object

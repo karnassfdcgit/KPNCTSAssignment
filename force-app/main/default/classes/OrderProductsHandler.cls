@@ -1,13 +1,16 @@
 /**
- * Name: OrderProductsHandler
- * Date: 17-Apr-22
- * Author: Shiva Karna
- * Description: this class developed to show order products and available products 
+ * Apex Class Name: OrderProductsHandler
+ * created Date: 17-Apr-22
+ * @Author: Shiva Karna
+ * @Description: this class developed to show order products and available products 
  * in OrderedProducts lwc component in order record page 
- * Changes: 
+ * Modification log
+ * Ver   Date          Author                               Modification
+ * 1.0   17-Apr-2022   Shiva Karna                      Initial Version
  * 
  * 
  */
+
 public without sharing class OrderProductsHandler {
     
     //retrive all exsisting order products based on currently open order
