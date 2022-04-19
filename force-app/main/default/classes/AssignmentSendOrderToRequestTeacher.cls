@@ -18,6 +18,7 @@ public with sharing class AssignmentSendOrderToRequestTeacher {
                                                (SELECT Id,Product_Code__c,Description,UnitPrice, Quantity, OrderId 
                                               FROM OrderItems) FROM Order WHERE Id = :orderRecordId];
          for(order orderRec:orders){
+             //add order details on orderDetailscls class
              orderDetailscls orderObj = new orderDetailscls(orderRec.Account_number__c,orderRec.OrderNumber,orderRec.Type,orderRec.status);
              //orderObj.accountNumber = orderRec.AccountNumber; - 
              for(Orderitem orditem:orderRec.OrderItems){

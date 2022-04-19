@@ -49,6 +49,7 @@ public with sharing class AvailableProductsHandler {
             UpdateOrderAndOrderItems.addOrderProducts(orderitemlistforUpsert);   
             return system.label.successMsg;
             }catch(Exception e){
+                //add exception in custom exception object
                 HandleCustomException.LogException(e);
                 return  e.getMessage();
             }                        
