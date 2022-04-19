@@ -6,10 +6,11 @@
  * This class will get involved whenever, we click activate button in order record page.
  * Changes: 
  * 
+ *
  */
 public with sharing class AssignmentSendOrderToRequestTeacher {   
     //Pass order id and retrive order products, generate json request and 
-    //send it to requestcatcher site.
+    //send it to requestcatcher site.    
     @AuraEnabled
     public static void sendOrderDetails(String orderRecordId){    
         list<orderDetailscls> orderDetailList = new list<orderDetailscls>();
