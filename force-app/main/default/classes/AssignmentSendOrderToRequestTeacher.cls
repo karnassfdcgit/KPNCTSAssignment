@@ -19,8 +19,7 @@ public with sharing class AssignmentSendOrderToRequestTeacher {
                                               FROM OrderItems) FROM Order WHERE Id = :orderRecordId];
          for(order orderRec:orders){
              //add order details on orderDetailscls class
-             orderDetailscls orderObj = new orderDetailscls(orderRec.Account_number__c,orderRec.OrderNumber,orderRec.Type,orderRec.status);
-             //orderObj.accountNumber = orderRec.AccountNumber; - 
+             orderDetailscls orderObj = new orderDetailscls(orderRec.Account_number__c,orderRec.OrderNumber,orderRec.Type,orderRec.status);             
              for(Orderitem orditem:orderRec.OrderItems){
                  orderObj.orderProducts.add(new orderProductscls(orditem.Description,orditem.Product_Code__c, orditem.UnitPrice,integer.valueOf(orditem.Quantity)));   			               
              }
@@ -37,8 +36,6 @@ public with sharing class AssignmentSendOrderToRequestTeacher {
         try{
          HttpRequest req = new HttpRequest();
          req.setMethod('POST');
-         //req.setHeader('Accept-Encoding', 'gzip,deflate');
-         //req.setHeader('content-type', 'text/xml; charset=utf-8');
          req.setHeader('Content-Length', String.valueOf(jsonBody.length()));
          req.setEndpoint('callout:requestcatcher_endpoint');//Endpoint stored in named credentials                
          req.setBody(jsonBody);

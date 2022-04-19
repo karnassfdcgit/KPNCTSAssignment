@@ -47,11 +47,11 @@ public with sharing class AvailableProductsHandler {
             //upsert order items
             try{
             UpdateOrderAndOrderItems.addOrderProducts(orderitemlistforUpsert);   
-            return system.label.successMsg;
+            return system.label.successMsg;//return success message
             }catch(Exception e){
                 //add exception in custom exception object
                 HandleCustomException.LogException(e);
-                return  e.getMessage();
+                return  e.getMessage();//return error message
             }                        
     }
     
