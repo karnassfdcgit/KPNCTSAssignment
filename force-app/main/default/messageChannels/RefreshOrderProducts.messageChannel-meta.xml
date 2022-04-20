@@ -10,11 +10,7 @@
     <lightningMessageFields>
         <fieldName>message</fieldName>
         <description>This is sample message</description>
-    </lightningMessageFields>
-    <lightningMessageFields>
-        <fieldName>source</fieldName>
-        <description>pass text message</description>
-    </lightningMessageFields>
+    </lightningMessageFields>    
     <lightningMessageFields>
         <fieldName>source</fieldName>
         <description>This is the source message like LWC, Lighting Aura Components, VF</description>
