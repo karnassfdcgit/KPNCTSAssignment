@@ -14,8 +14,8 @@
     <lightningMessageFields>
         <fieldName>source</fieldName>
         <description>This is the source message like LWC, Lighting Aura Components, VF</description>
-    </lightningMessageFields>
-    <lightningMessageFields>
+     </lightningMessageFields>
+     <lightningMessageFields>
         <fieldName>recordData</fieldName>
         <description>The current data representing the record that changed</description>
     </lightningMessageFields>
