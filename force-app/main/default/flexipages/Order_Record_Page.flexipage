@@ -2,7 +2,11 @@
 <FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
     <flexiPageRegions>
         <itemInstances>
+<<<<<<< HEAD
             <componentInstance>
+=======
+            <componentInstance>                
+>>>>>>> 49c5e33fea438895d6fc3658662391f0c9c60600
                 <componentInstanceProperties>
                     <name>collapsed</name>
                     <value>false</value>

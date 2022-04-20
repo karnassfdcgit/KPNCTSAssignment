@@ -147,7 +147,11 @@
     <fields>
         <fullName>ServiceDate</fullName>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
     </fields>
+=======
+ </fields>
+>>>>>>> 49c5e33fea438895d6fc3658662391f0c9c60600
     <fields>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
