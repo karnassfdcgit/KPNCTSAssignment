@@ -1,32 +1,20 @@
 /**
-<<<<<<< HEAD
- * Name: OrderProductsHandlerTest
- * Date: 17-Apr-22
- * Author: Shiva Karna
- * Description: this class will do test coverage for OrderProductsHandler class
-  * Changes: 
-=======
  * Apex Class Name: OrderProductsHandlerTest
  * created Date: 17-Apr-22
  * @Author: Shiva Karna
  * Description: this test class was developed to increase coverage for OrderProductsHandler and
  * AvailableProductsHandler. 
  * Modification log
- * Ver   Date          Author                               Modification
+ * Ver   Date          Author                         Modification
  * 1.0   17-Apr-2022   Shiva Karna                      Initial Version
->>>>>>> 49c5e33fea438895d6fc3658662391f0c9c60600
  * 
  * 
  */
 @isTest
 public class OrderProductsHandlerTest {
- @isTest
-<<<<<<< HEAD
+    @isTest
     public static void OrderProductTestMethod() {
-=======
-    public static void OrderProductHandlerTestMethod() {
->>>>>>> 49c5e33fea438895d6fc3658662391f0c9c60600
-    
+               
     Id pricebookId = Test.getStandardPricebookId();
         system.debug('price book '+pricebookId);
     // Insert Account
@@ -82,17 +70,9 @@ public class OrderProductsHandlerTest {
     insert OrdItemRec;       
     list<OrderItem> orderItemList = OrderProductsHandler.getOrderProducts(orderRec.id);
     System.AssertNotEquals(orderItemList.size(),0);
-<<<<<<< HEAD
-=======
-    list<PricebookEntry> priceBooklisttest = AvailableProductsHandler.getProducts(orderRec.id);
-    System.AssertNotEquals(priceBooklisttest.size(),0);
-    string orderitemStatus = AvailableProductsHandler.upsertOrderItems(orderRec.id,priceBookList);
-    System.assertEquals(orderitemStatus,'success');
->>>>>>> 49c5e33fea438895d6fc3658662391f0c9c60600
     string orderStatus =  OrderProductsHandler.updateOrderStatus(orderRec.id);
     System.assertEquals(orderStatus,'success');
     string orderNotStatus = OrderProductsHandler.updateOrderStatus(null);
-    System.assertNotEquals(orderNotStatus,'success');
-    
+    System.assertNotEquals(orderNotStatus,'success');    
     }
 }

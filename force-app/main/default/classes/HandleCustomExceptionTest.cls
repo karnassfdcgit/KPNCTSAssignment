@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /**
  * Apex Class Name: HandleCustomExceptionTest
  * created Date: 17-Apr-22
@@ -11,7 +9,6 @@
  * 
  * 
  */
->>>>>>> 49c5e33fea438895d6fc3658662391f0c9c60600
 @isTest
 public class HandleCustomExceptionTest {
     @isTest

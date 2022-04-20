@@ -1,15 +1,4 @@
 /**
-<<<<<<< HEAD
- * Name: UpdateOrderAndOrderItems
- * Date: 17-Apr-22
- * Author: Shiva Karna
- * Description: this class developed to update order and order products from
- * OrderProductsHandler and AvailableProductsHandler class 
- * Changes: 
- * 
- * 
- */
-=======
  * Apex Class Name: UpdateOrderAndOrderItems
  * created Date: 17-Apr-22
  * @Author: Shiva Karna
@@ -21,8 +10,6 @@
  * 
  * 
  */
- 
->>>>>>> 49c5e33fea438895d6fc3658662391f0c9c60600
 public with sharing class UpdateOrderAndOrderItems {
     
   //upsert order products  

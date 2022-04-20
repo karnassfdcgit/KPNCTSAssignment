@@ -70,5 +70,4 @@ public class AvailableProductsHandlerTest {
     string orderitemStatus = AvailableProductsHandler.upsertOrderItems(orderRec.id,priceBookList);
     System.assertEquals(orderitemStatus,'success');
     }
-}    
 }

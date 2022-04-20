@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-/**
- * Name: KPN_AssignmentSendOrderToRequestTeacher
- * Date: 17-Apr-22
- * Author: Shiva Karna
- * Description: this class was developed to send order and order products to requestcatcher site. 
- * This class will get involved whenever, we click activate button in order record page.
- * Changes: 
- * 
- */
-public with sharing class AssignmentSendOrderToRequestTeacher {   
-    //Pass order id and retrive order products, generate json request and 
-    //send it to requestcatcher site.
-=======
  /**
  * Apex Class Name: AssignmentSendOrderToRequestTeacher
  * created Date: 17-Apr-22
@@ -27,24 +13,16 @@ public with sharing class AssignmentSendOrderToRequestTeacher {
 
 public with sharing class AssignmentSendOrderToRequestTeacher {   
     //Pass order id and retrive order products, generate json request and 
-    //send it to requestcatcher site.    
->>>>>>> 49c5e33fea438895d6fc3658662391f0c9c60600
+    //send it to requestcatcher site.
     @AuraEnabled
     public static void sendOrderDetails(String orderRecordId){    
         list<orderDetailscls> orderDetailList = new list<orderDetailscls>();
          List<Order> orders = [SELECT Id, Status,OrderNumber,Account_number__c,Type,
                                                (SELECT Id,Product_Code__c,Description,UnitPrice, Quantity, OrderId 
-<<<<<<< HEAD
-                                              FROM OrderItems) FROM Order WHERE Id = :orderRecordId WITH SECURITY_ENFORCED];
+                                              FROM OrderItems) FROM Order WHERE Id = :orderRecordId];
          for(order orderRec:orders){
              orderDetailscls orderObj = new orderDetailscls(orderRec.Account_number__c,orderRec.OrderNumber,orderRec.Type,orderRec.status);
              //orderObj.accountNumber = orderRec.AccountNumber; - 
-=======
-                                              FROM OrderItems) FROM Order WHERE Id = :orderRecordId];
-         for(order orderRec:orders){
-             //add order details on orderDetailscls class
-             orderDetailscls orderObj = new orderDetailscls(orderRec.Account_number__c,orderRec.OrderNumber,orderRec.Type,orderRec.status);             
->>>>>>> 49c5e33fea438895d6fc3658662391f0c9c60600
              for(Orderitem orditem:orderRec.OrderItems){
                  orderObj.orderProducts.add(new orderProductscls(orditem.Description,orditem.Product_Code__c, orditem.UnitPrice,integer.valueOf(orditem.Quantity)));   			               
              }
@@ -61,23 +39,16 @@ public with sharing class AssignmentSendOrderToRequestTeacher {
         try{
          HttpRequest req = new HttpRequest();
          req.setMethod('POST');
-<<<<<<< HEAD
          //req.setHeader('Accept-Encoding', 'gzip,deflate');
          //req.setHeader('content-type', 'text/xml; charset=utf-8');
-=======
->>>>>>> 49c5e33fea438895d6fc3658662391f0c9c60600
          req.setHeader('Content-Length', String.valueOf(jsonBody.length()));
          req.setEndpoint('callout:requestcatcher_endpoint');//Endpoint stored in named credentials                
          req.setBody(jsonBody);
          //Execute web service call here     
          Http http = new Http();
          HTTPResponse res = http.send(req);
-<<<<<<< HEAD
          string responseDetails = res.getBody();
          system.debug('Callout response'+responseDetails);
-=======
-         string responseDetails = res.getBody();         
->>>>>>> 49c5e33fea438895d6fc3658662391f0c9c60600
          }catch(exception e)
          {
           //create exception in custom exception object
