@@ -23,8 +23,8 @@ public without sharing class OrderProductsHandler {
     public static string updateOrderStatus(string orderRecID) {
 
         try {
-            UpdateOrderAndOrderItems.updateOrderAndOrderItemsStatus(orderRecID);
-            AssignmentSendOrderToRequestTeacher.sendOrderDetails(orderRecID);
+            	UpdateOrderAndOrderItems.updateOrderAndOrderItemsStatus(orderRecID);            
+            	AssignmentSendOrderToRequestTeacher.sendOrderDetails(orderRecID);           
             return system.label.successMsg;
         } catch (exception e) {
             //capture any exceptions in custom exception object
