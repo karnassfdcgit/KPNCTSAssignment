@@ -1,0 +1,28 @@
+<!--
+ Name: OrderedProducts
+ Created by: Shiva Karna
+ Date: 18-Apr-2022
+ Description: This LWC component will show selected order products on order page.
+ Changes:
+-->
+<template> 
+    <lightning-card title="Order Products" icon-name="custom:custom63">                             
+             <template if:true={orderstatusflag}><!-- Hide When order status is Activated-->
+             <lightning-button variant="brand" label="Activate" title="Primary action" onclick={handleActivateOrderClick} class="slds-m-left_x-small"></lightning-button>
+            </template>           
+        <div style="height: 250px;">
+            <!-- Display Order Products like Name, unitprice, quantity-->
+            <lightning-datatable
+                    key-field="id"
+                    data={orderitems.data}
+                    columns={columns}
+                    hide-checkbox-column="false"
+                    sorted-by={sortBy}
+                    sorted-direction={sortDirection}
+                    onsort={handleSortAccountData}                    
+                    show-row-number-column="true"
+                    >                    
+            </lightning-datatable>
+        </div>          
+    </lightning-card>    
+</template>

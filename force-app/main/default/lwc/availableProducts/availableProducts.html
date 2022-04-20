@@ -1,0 +1,51 @@
+<!--
+ Name: AvaliableProducts
+ Created by: Shiva Karna
+ Date: 18-Apr-2022
+ Description: This LWC component will show products on order page based on order selected pricebook
+ Changes:
+-->
+<template>
+    <lightning-card title="Avaliable Products" icon-name="custom:custom63">        
+        <template if:true={orderstatusflag}><!-- Hide When order status is Activated-->
+        <lightning-button   variant="Neutral" label="Add Selected Products"
+        title="Add Selected Products"
+        onclick={getSelectedRec} 
+        slot="actions"
+        icon-name="utility:check">
+    </lightning-button>
+    </template>
+        <!--<div style="height: 150px;"> </div>  -->
+            <!-- Display Products-->
+            <lightning-datatable
+                    key-field="id"
+                    data={data}
+                    columns={columns}                    
+                    sorted-by={sortBy}
+                    sorted-direction={sortDirection}                                     
+                    show-row-number-column="true"                    
+                    selected-rows={allSelectedRows} 
+                    >                    
+            </lightning-datatable>                                
+            <lightning-layout horizontal-align="space">
+                <lightning-layout-item flexibility="auto">
+                    <lightning-button 
+                        label="Previous" 
+                        icon-name="utility:chevronleft" 
+                        onclick={previousHandler}>
+                    </lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto">
+                    Page {page} of {totalPage}
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto">
+                    <lightning-button 
+                        label="Next" 
+                        icon-name="utility:chevronright" 
+                        icon-position="right"
+                        onclick={nextHandler}>
+                    </lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+    </lightning-card>    
+</template>
