@@ -1,4 +1,4 @@
- /**
+/**
   * Apex Class Name: AssignmentSendOrderToRequestTeacher
   * created Date: 17-Apr-22
   * @Author: Shiva Karna
@@ -15,14 +15,15 @@
   public with sharing class AssignmentSendOrderToRequestTeacher {
     //Pass order id and retrive order products, generate json request and 
     //send it to requestcatcher site.
-    @AuraEnabled
+    @future(callout=true)
     public static void sendOrderDetails(String orderRecordId) {
-        list < orderDetailscls > orderDetailList = new list < orderDetailscls > ();
-        List < Order > orders = [SELECT Id, Status, OrderNumber, Account_number__c, Type, (SELECT Id, Product_Code__c, Description, UnitPrice, Quantity, OrderId FROM OrderItems) FROM Order WHERE Id = : orderRecordId];
+        list <orderDetailscls> orderDetailList = new list <orderDetailscls>();
+        List <Order> orders = [SELECT Id, Status, OrderNumber, Account_number__c, Type, (SELECT Id, Product_Code__c, Description, UnitPrice, Quantity, OrderId FROM OrderItems) FROM Order WHERE Id =:orderRecordId];
         for (order orderRec: orders) {
-            orderDetailscls orderObj = new orderDetailscls(orderRec.Account_number__c, orderRec.OrderNumber, orderRec.Type, orderRec.status);
-            //orderObj.accountNumber = orderRec.AccountNumber; - 
+            orderDetailscls orderObj = new orderDetailscls(orderRec.Account_number__c, orderRec.OrderNumber, orderRec.Type, orderRec.status);            
+            system.debug(' order iem size'+orderRec.OrderItems);
             for (Orderitem orditem: orderRec.OrderItems) {
+                
                 orderObj.orderProducts.add(new orderProductscls(orditem.Description, orditem.Product_Code__c, orditem.UnitPrice, integer.valueOf(orditem.Quantity)));
             }
             //add order and order products to list
@@ -30,6 +31,7 @@
         }
         //convert order,order product into JSON format, so that other system can read it.
         String str = JSON.serialize(orderDetailList);
+        system.debug('string '+str);
         //pass JSON request and execute API callout to other system
         AssignmentSendOrderToRequestTeacher.sendAPIRequest(str);
     }
