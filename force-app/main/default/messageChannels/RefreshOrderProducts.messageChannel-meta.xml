@@ -2,30 +2,22 @@
 <LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
     <masterLabel>RefreshOrderProducts</masterLabel>
     <isExposed>true</isExposed>
-<<<<<<< HEAD
-    <description>This is a sample Lightning Message Channel.</description>
-=======
     <description>This is a Ordered Product Refresh Lightning Message Channel.</description>
->>>>>>> 49c5e33fea438895d6fc3658662391f0c9c60600
     <lightningMessageFields>
         <fieldName>recordId</fieldName>
         <description>This is the record Id that changed</description>
     </lightningMessageFields>
     <lightningMessageFields>
         <fieldName>message</fieldName>
-<<<<<<< HEAD
         <description>This is sample message</description>
     </lightningMessageFields>
     <lightningMessageFields>
         <fieldName>source</fieldName>
-        <description>This is the source message</description>
-=======
         <description>pass text message</description>
     </lightningMessageFields>
     <lightningMessageFields>
         <fieldName>source</fieldName>
         <description>This is the source message like LWC, Lighting Aura Components, VF</description>
->>>>>>> 49c5e33fea438895d6fc3658662391f0c9c60600
     </lightningMessageFields>
     <lightningMessageFields>
         <fieldName>recordData</fieldName>
